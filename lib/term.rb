@@ -1,4 +1,5 @@
 class Term
+  attr_reader :word, :definition
 
   @@all_terms = []
 
@@ -16,6 +17,15 @@ class Term
     new_term
   end
 
+  def delete
+    @@all_terms.delete(self)
+  end
+
+  def edit(edited_word, edited_definition)
+    @word = edited_word
+    @definition = edited_definition
+  end
+
   def initialize(word, definition)
     @word = word
     @definition = definition
@@ -24,5 +34,10 @@ class Term
   def save
     @@all_terms << self
   end
+
+  def full_entry
+    @word + ": " + @definition
+  end
+
 
 end
