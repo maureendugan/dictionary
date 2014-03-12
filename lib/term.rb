@@ -17,6 +17,12 @@ class Term
     new_term
   end
 
+  def Term.search(word_search)
+    found_term = []
+    found_term = @@all_terms.select {|object| object.word == word_search}
+    found_term[0]
+  end
+
   def delete
     @@all_terms.delete(self)
   end

@@ -44,6 +44,17 @@ describe Term do
     end
   end
 
+  describe '.search' do
+    it 'uses a word to find its term' do
+      test_term1 = Term.create('apple', 'fruit')
+      test_term2 = Term.create('carrot', 'vegetable')
+      Term.search('apple').should eq test_term1
+    end
+    it 'returns false if it does not find a word' do
+      test_term1 = Term.create('apple', 'fruit')
+      Term.search('candy').should eq nil
+    end
+  end
   describe '#full_entry' do
     it 'displays the word and definition together' do
       test_term = Term.create("word", "definition")
