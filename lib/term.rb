@@ -34,7 +34,7 @@ class Term
 
   def initialize(word, definition)
     @word = word
-    @definition = definition
+    @definition = [definition]
   end
 
   def save
@@ -42,7 +42,7 @@ class Term
   end
 
   def full_entry
-    @word + ": " + @definition
+    @word + ": " + @definition.join(', ')
   end
 
 
